@@ -1,0 +1,93 @@
+{
+  "name": "othello-pro",
+  "displayName": "OthelloPro",
+  "description": "Play Othello (Reversi) in VS Code",
+  "version": "1.0.0",
+  "publisher": "zhanwangfeng",
+  "license": "MIT",
+  "icon": "resources/othello-icon-high.png",
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "keywords": [
+    "othello",
+    "reversi",
+    "game",
+    "黑白棋",
+    "翻转棋",
+    "游戏"
+  ],
+  "files": [
+    "out",
+    "resources",
+    "src/webview",
+    "README.md",
+    "CHANGELOG.md",
+    "LICENSE"
+  ],
+  "activationEvents": [
+    "onView:othelloView"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "othello",
+          "title": "Othello 黑白棋",
+          "icon": "resources/othello-icon.svg"
+        }
+      ]
+    },
+    "views": {
+      "othello": [
+        {
+          "id": "othelloView",
+          "name": "Othello 黑白棋",
+          "icon": "resources/othello-icon.svg",
+          "contextualTitle": "Othello 黑白棋"
+        }
+      ]
+    },
+    "commands": [
+      {
+        "command": "othello.start",
+        "title": "Othello: Start Game"
+      },
+      {
+        "command": "othello.share",
+        "title": "Othello: 网页版同款游戏",
+        "icon": "$(link-external)"
+      }
+    ],
+    "menus": {
+      "view/title": [
+        {
+          "command": "othello.share",
+          "when": "view == othelloView",
+          "group": "navigation"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc --noEmit -p ./ && esbuild src/extension.ts --bundle --platform=node --target=node16 --outfile=out/extension.js --external:vscode",
+    "watch": "tsc --noEmit -p ./ & esbuild src/extension.ts --bundle --platform=node --target=node16 --outfile=out/extension.js --external:vscode --watch",
+    "package": "vsce package --out release/"
+  },
+  "devDependencies": {
+    "@types/node": "^26.2.0",
+    "@types/vscode": "^1.85.0",
+    "@vscode/vsce": "^3.9.2",
+    "esbuild": "^0.23.1",
+    "typescript": "^5.3.3"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/zhanwangfeng/OthelloForVSCode.git"
+  }
+}
