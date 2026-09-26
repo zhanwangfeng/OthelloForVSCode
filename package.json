@@ -29,7 +29,9 @@
     "LICENSE"
   ],
   "activationEvents": [
-    "onView:othelloView"
+    "onView:othelloView",
+    "onCommand:othello.start",
+    "onCommand:othello.share"
   ],
   "main": "./out/extension.js",
   "contributes": {
@@ -77,7 +79,7 @@
     "vscode:prepublish": "npm run compile",
     "compile": "tsc --noEmit -p ./ && esbuild src/extension.ts --bundle --platform=node --target=node16 --outfile=out/extension.js --external:vscode",
     "watch": "tsc --noEmit -p ./ & esbuild src/extension.ts --bundle --platform=node --target=node16 --outfile=out/extension.js --external:vscode --watch",
-    "package": "vsce package --out release/"
+    "package": "vsce package"
   },
   "devDependencies": {
     "@types/node": "^26.2.0",

@@ -24,7 +24,7 @@
 ### 方式一：VS Code 插件市场安装（推荐）
 
 1. 打开 VS Code，进入扩展市场（快捷键 `Cmd/Ctrl + Shift + X`）。
-2. 搜索 **`Othello`**（或本插件发布名 `othello-for-vscode`），点击 **安装**。
+2. 搜索 **`Othello`**（或本插件发布名 `othello-pro`），点击 **安装**。
 3. 安装完成后，按 `Cmd/Ctrl + Shift + P` 打开命令面板。
 4. 执行命令 **`Othello: Start Game`**，即可打开黑白棋游戏面板开始游玩。
 
